@@ -7,7 +7,7 @@ async function registerUser(req, res) {
     let { fullname, email, password } = req.body;
     let existingUser = await userModel.findOne({ email: email });
     if (existingUser) {
-      return res.status(400).send("                              You already have an account, please login.");
+      return res.status(400).send("You already have an account, please login.");
     }
     
 
@@ -30,7 +30,7 @@ async function registerUser(req, res) {
         // let token = gentoken(existingUser);
         // res.cookie( "token" ,token);
 
-        res.redirect("/shop")
+        res.send("registered")
         console.log("User created");
       });
     });
